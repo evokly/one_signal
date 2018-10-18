@@ -16,7 +16,8 @@ defmodule OneSignal.Param do
             wp_params: nil,
             chrome_params: nil,
             firefox_params: nil,
-            send_after: nil
+            send_after: nil,
+            android_group: nil
 
   defp to_string_key({k, v}) do
     {to_string(k), v}
@@ -218,5 +219,9 @@ defmodule OneSignal.Param do
 
   def put_data(%Param{data: data} = param, key, value) do
     %{param | data: Map.put(data, key, value)}
+  end
+
+  def put_android_group(%Param{android_group: _android_group} = param, group) do
+    %{param | android_group: group}
   end
 end
